@@ -13,12 +13,14 @@
       crossorigin="anonymous"
     />
     <link href="css/styles.css" rel="stylesheet" />
+    <script src="index.js"></script>
+
     <title>Netflix</title>
     <style>
       body {
         background-color: #121212;
       }
-      .netflix-font {
+      @font-face {
         font-family: "Netflix Sans";
         font-weight: 400;
         font-display: optional;
@@ -26,6 +28,21 @@
             format("woff2"),
           url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Rg.woff)
             format("woff");
+      }
+
+      @font-face {
+        font-family: "Netflix Sans 2";
+        font-weight: 100;
+        font-display: optional;
+        src: url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Th.woff2)
+            format("woff2"),
+          url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Th.woff)
+            format("woff");
+      }
+
+      .netflix-font {
+        font-family: "Netflix Sans";
+        font-weight: 400;
       }
 
       .container-class {
@@ -64,7 +81,7 @@
   <body>
     <nav class="navbar navbar-expand-lg navbarNetflix">
       <div class="container-fluid px-4 px-4 containerRelative">
-        <a class="navbar-brand" href="indexmain.html"
+        <a class="navbar-brand" href="index.html"
           ><span
             ><img
               src="assets/Netflix_Logo_RGB.png"
@@ -92,16 +109,16 @@
               ></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.html">TV Shows</a>
+              <a class="nav-link" href="#">TV Shows</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Movies</a>
+              <a class="nav-link" href="#">Movies</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Recently Added</a>
+              <a class="nav-link" href="#">Recently Added</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.html">My List</a>
+              <a class="nav-link" href="#">My List</a>
             </li>
             <li class="nav-item">
               <a
@@ -214,7 +231,7 @@
 
     <!--FirstTitle & Genres-->
     <div class="container-fluid px-4 px-4">
-      <h2 style="display: inline" class="genresTitle">TV Shows</h2>
+      <h2 style="display: inline" class="genresTitle">Movies</h2>
       <a
         class="nav-link dropdown-toggle genresButton"
         href="#"
@@ -241,7 +258,7 @@
     </div>
     <!--End FirstTitle & Genres-->
 
-    <div class="container-fluid mt-3 pl-md-5 container-class">
+    <div id="mainBody" class="container-fluid mt-3 pl-md-5 container-class">
       <section class="mt-5">
         <div class="section-title">
           <div class="text-ellipsis d-inline-block">

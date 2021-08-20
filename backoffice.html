@@ -24,6 +24,7 @@
       rel="stylesheet"
     />
     <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    <script src="backoffice.js"></script>
     <title>Netflix Profile Page</title>
     <style>
       @font-face {
@@ -272,31 +273,40 @@ input[type="checkbox"]:checked:disabled + label:before {
       /></a>
     </div>
 
-    <div class="container mainbody">
+    <div id="mainbody" class="container mainbody">
       <div class="container">
-        <p class="editprofiletext mb-0 mt-5 display-4">Edit Profile</p>
+        <p class="editprofiletext mb-0 mt-5 display-4">Add Movies</p>
         <hr style="max-width: 540px; margin: auto" />
       </div>
       <div class="container section1 mt-4">
         <div class="row">
           <div class="col-sm-3 mb-4">
             <img
-              src="https://strive.school/favicon.ico"
+              src="/assets/netflixsquare.png"
               class="img-fluid strive-image"
               alt="Responsive image"  
             />
           
           </div>
           <div class="col-sm-9">
+            <p class="h5 languagetext">Movie Title:</p>
             <input
               class="form-control nameform"
               type="text"
-              placeholder="Strive Student"
+              placeholder=""
+              id="movieTitleForm"
             />
 
-            <p class="h5 mt-4 languagetext">Language:</p>
+            <p class="h5 mt-4 languagetext">Category:</p>
+            <input
+            class="form-control nameform mb-4"
+            type="text"
+            placeholder=""
+            style=max-width:250px;
+            id="movieCategoryForm"
+          />
 
-            <div class="dropdown mb-4">
+            <!-- <div class="dropdown mb-4">
               <button
                 class="btn btn-secondary dropdown-toggle selectlang"
                 type="button"
@@ -313,44 +323,57 @@ input[type="checkbox"]:checked:disabled + label:before {
                 <a class="dropdown-item" href="#">German</a>
                 <a class="dropdown-item" href="#">Spanish</a>
               </div>
-            </div>
+            </div> -->
             <hr style="max-width: 570px; margin: auto" />
-            <p class="mt-4 maturitytext">Maturity Settings:</p>
-            <button type="button" class="btn btn-secondary maturitybutton mt-1">
+            <p class="mt-4 maturitytext">Image URL:</p>
+            <input
+            class="form-control nameform mb-4"
+            type="url"
+            placeholder=""
+            style=max-width:350px;
+            id="movieImageForm"
+          />
+            <!-- <button type="button" class="btn btn-secondary maturitybutton mt-1">
               ALL MATURITY RATINGS
-            </button>
-            <p class="ratingtextunder mt-3">
+            </button> -->
+            <!-- <p class="ratingtextunder mt-3">
               Show titles of
               <span class="spantext">all maturity ratings</span> for this
               profile.
             </p>
             <button type="button" class="btn btn-secondary editbtn mt-1 mb-4">
               EDIT
-            </button>
+            </button> -->
             <hr class="mt-1" style="max-width: 570px; margin: auto" />
-            <p class="mt-3 mb-3 maturitytext">Autoplay controls</p>
+            <p class="mt-3 mb-3 maturitytext">Movie Description</p>
+            <!-- <input
+            class="form-control nameform mb-4"
+            type="text"
+            placeholder="Description"
+            style="height:500px;"
+          /> -->
+          <textarea id="movieDescriptionForm" class="nameform mb-4" name="moviedescription" rows="4" cols="50"></textarea>
 
-    <form class="mb-4">
+    <!-- <form class="mb-4">
       <input type="checkbox" id="box1" name="box-1" >
       <label for="box1" class="checkboxtext">Autoplay next episode in a series on all devices.</label>
       <input type="checkbox" id="box2" name="box-2">
       <label for="box2" class="checkboxtext">Autoplay previews while browsing on all devices.</label>
       
-    </form>
+    </form> -->
                
             </div>
             <hr style="max-width: 540px; margin: auto" class="mb-4" />
 
-            <button type="button" class="btn btn-secondary savebtn mt-2 mb-4">
+            <button type="button" id="saveBtn" class="btn btn-secondary savebtn mt-2 mb-4">
               SAVE
             </button>
-            <button type="button" class="btn btn-secondary cancelbtn mt-2 mb-4">
-              CANCEL
+            <button onclick="clearForms()" type="button" id="clearBtn" class="btn btn-secondary cancelbtn mt-2 mb-4">
+              CLEAR
             </button>
-            <button type="button" class="btn btn-secondary deletebtn mt-2 mb-4">
-              DELETE PROFILE
-            </button>
-            
+            <button onclick="deleteMovies()" type="button" class="btn btn-secondary deletebtn mt-2 mb-4">
+              DELETE MOVIES
+            </button> 
           </div>
         </div>
       </div>
