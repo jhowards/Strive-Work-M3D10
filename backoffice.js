@@ -1,8 +1,21 @@
 window.onload = async () => {
-  let saveBtn = document.getElementById("saveBtn");
-  saveBtn.onclick = function () {
-    addMovie();
-  };
+  let urlID = new URLSearchParams(window.location.search)
+    .toString()
+    .slice(0, -1);
+
+  if (urlID) {
+    let heading = document.getElementById("editHeading");
+    heading.innerText = "Edit Movie:";
+    let saveBtn = document.getElementById("saveBtn");
+    saveBtn.onclick = function () {
+      editMovie(urlID);
+    };
+  } else {
+    let saveBtn = document.getElementById("saveBtn");
+    saveBtn.onclick = function () {
+      addMovie();
+    };
+  }
 };
 
 addMovie = () => {
@@ -42,6 +55,8 @@ addToAPI = (movie) => {
     .then((response) => response.text())
     .then((result) => console.log(result))
     .catch((error) => console.log("error", error));
+  alert("Movie added!");
+  clearForms();
 };
 
 clearForms = () => {
@@ -149,4 +164,43 @@ const grabCategories = async () => {
 const deleteMovie = async (id) => {
   // alert(id);
   confirm("Are you sure you want to delete id: " + id + "?");
+};
+
+const editMovie = async (id) => {
+  var myHeaders = new Headers();
+  myHeaders.append(
+    "Authorization",
+    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDgyYmM1YTEwOWJiYzAwMTVlNDA1ZGQiLCJpYXQiOjE2Mjk0NTIyNzgsImV4cCI6MTYzMDY2MTg3OH0.Udj1GYOhQEcl86grsjygbRG8JgzuBVAp2oSj8s6SJTY"
+  );
+  myHeaders.append("Content-Type", "application/json");
+
+  let movieName = document.getElementById("movieTitleForm").value;
+  let movieImage = document.getElementById("movieImageForm").value;
+  let movieDescription = document.getElementById("movieDescriptionForm").value;
+  let movieCategory = document.getElementById("movieCategoryForm").value;
+
+  let movie = JSON.stringify({
+    name: movieName,
+    description: movieDescription,
+    category: movieCategory,
+    imageUrl: movieImage,
+  });
+
+  var requestOptions = {
+    method: "PUT",
+    headers: myHeaders,
+    body: movie,
+    redirect: "follow",
+  };
+
+  fetch(
+    "https://striveschool-api.herokuapp.com/api/movies/" + id,
+    requestOptions
+  )
+    .then((response) => response.text())
+    .then((result) => {
+      console.log(result);
+    })
+    .catch((error) => console.log("error", error));
+  alert("Movie edited!");
 };

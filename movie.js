@@ -12,6 +12,7 @@ window.onload = () => {
 
   if (id) {
     generatePage(id, name, category, description, image);
+    // history.replaceState({}, null, "/movie.html");
   } else {
     alert("Error");
   }
@@ -26,4 +27,7 @@ generatePage = async (id, name, category, description, image) => {
   movieImage.src = image;
   movieCategory.innerText = category;
   movieDescription.innerText = description;
+  const editButton = document.getElementById("editBtn");
+  // editButton.href = "/backoffice.html";
+  editButton.setAttribute("href", "/backoffice.html?" + id);
 };
