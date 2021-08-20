@@ -57,7 +57,7 @@ const generateCards = async (categories) => {
     let category = categories[i];
     const movies = await grabMovies(category);
     console.log(movies);
-    mainBody.innerHTML += `<section class="mt-5">
+    mainBody.innerHTML += `<section class="mt-1">
       <div class="section-title">
         <div class="text-ellipsis d-inline-block">
           <h4 class="text-white mb-3 netflix-font first-h4">${category}</h4>
@@ -78,13 +78,15 @@ const generateCards = async (categories) => {
     const categoryBody = document.getElementById(category + "Body");
     for (let i = 0; i < movies.length; i++) {
       categoryBody.innerHTML += `
-        <div class="col px-1">
+        <div class="col px-1 mb-2" style="width:13%;>
         <div class="position-relative">
+        <a href="/movie.html?a=${movies[i]._id}&b=${movies[i].name}&c=${movies[i].category}&d=${movies[i].description}&e=${movies[i].imageUrl}">
           <img
             src="${movies[i].imageUrl}"
             class="img-fluid rounded mb-2 mb-sm-0"
             alt=" "
           />
+          </a>
         </div>
       </div>
         `;

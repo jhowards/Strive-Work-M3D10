@@ -24,7 +24,7 @@
       rel="stylesheet"
     />
     <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
-    <script src="backoffice.js"></script>
+    <script src="movie.js"></script>
     <title>Netflix Profile Page</title>
     <style>
       @font-face {
@@ -64,7 +64,7 @@ body {
 }
 .mainbody {
   text-align: left;
-  max-width: 570px;
+  max-width: 800px;
   color: rgb(202, 196, 196);
   line-height: 2;
 }
@@ -220,36 +220,10 @@ input[type="checkbox"]:checked:disabled + label:before {
   margin-right: 20px;
 }
 
-.cancelbtn {
-  border-radius: 0px;
-  background-color: transparent;
-  border-color: #6c757d;
-  font-size: 16px;
-  letter-spacing: 0.2em;
-  height: 40px;
-  width: 140px;
-  color: #6c757d;
-  margin-right: 20px;
-}
 
-.deletebtn {
-  border-radius: 0px;
-  background-color: transparent;
-  border-color: #6c757d;
-  font-size: 16px;
-  letter-spacing: 0.2em;
-  height: 40px;
-  width: 235px;
-  color: #6c757d;
-  margin-right: 20px;
-}
 
 .form-control {
   background-clip: unset;
-}
-
-.movieimg{
-  width: 40%;
 }
 
     </style>
@@ -278,67 +252,23 @@ input[type="checkbox"]:checked:disabled + label:before {
 
     <div id="mainbody" class="container mainbody">
       <div class="container">
-        <p class="editprofiletext mb-0 mt-5 display-4">Add Movies</p>
-        <hr style="max-width: 540px; margin: auto" />
+        <p id="movieTitle" class="editprofiletext mb-3 mt-5 display-4 text-center">Error - No Movie</p>
+        <hr style="max-width: 800px; margin: auto" />
       </div>
-      <div class="container section1 mt-4">
-        <div class="row">
-          <div class="col-sm-3 mb-4">
-            <img
-              src="/assets/netflixsquare.png"
-              class="img-fluid strive-image"
-              alt="Responsive image"  
-            />
-          
-          </div>
-          <div class="col-sm-9">
-            <p class="h5 languagetext">Movie Title:</p>
-            <input
-              class="form-control nameform"
-              type="text"
-              placeholder=""
-              id="movieTitleForm"
-            />
-
-            <p class="h5 mt-4 languagetext">Category:</p>
-            <input
-            class="form-control nameform mb-4"
-            type="text"
-            placeholder=""
-            style=max-width:250px;
-            id="movieCategoryForm"
-          />
-
-           
-            <hr style="max-width: 570px; margin: auto" />
-            <p class="mt-4 maturitytext">Image URL:</p>
-            <input
-            class="form-control nameform mb-4"
-            type="url"
-            placeholder=""
-            style=max-width:350px;
-            id="movieImageForm"
-          />
-        
-            <hr class="mt-1" style="max-width: 570px; margin: auto" />
-            <p class="mt-3 mb-3 maturitytext">Movie Description:</p>
-
-          <textarea id="movieDescriptionForm" class="nameform mb-4" name="moviedescription" rows="4" cols="50"></textarea>
-
-
-               
-            </div>
-            <hr style="max-width: 540px; margin: auto" class="mb-4" />
-
-            <button type="button" id="saveBtn" class="btn btn-secondary savebtn mt-2 mb-4">
-              SAVE
+      <div class="container-fluid d-flex">
+      <img id="movieImage" class="mx-auto mt-2 mb-2" src="https://fakeimg.pl/300x400/" alt="">
+      <div class="container-fluid pl-3 ml-3">
+        <p class="font-weight-bold" id="movieCategory">Category</p>
+        <p id="movieDescription">Description DescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescription</p>
+      </div>
+      
+    </div>
+            <hr style="max-width: 800px; margin: auto" class="mb-4" />
+            <div class="container d-flex">
+            <button type="button" id="saveBtn" class="btn btn-secondary savebtn mt-2 mb-4 mx-auto">
+              EDIT
             </button>
-            <button onclick="clearForms()" type="button" id="clearBtn" class="btn btn-secondary cancelbtn mt-2 mb-4">
-              CLEAR
-            </button>
-            <button onclick="editMovies()" type="button" class="btn btn-secondary deletebtn mt-2 mb-4">
-              EDIT MOVIES
-            </button> 
+             </div>
           </div>
         </div>
       </div>
